@@ -228,3 +228,14 @@ db.getUsers()
 db.dropUser("ze")
 { ok: 1 }
 ```
+
+# Spring Data MongoDB
+
+```java
+Query query = new Query();
+query.addCriteria(Criteria.where("idUrl").is("iHA5GROvEF1Xe7BkPp7dY"));
+
+Update update = new Update();
+update.set("fullUrlAddress", "http://www.google.com");
+this.mongoTemplate.updateFirst(query, update, ShortenedUrl.class);
+````
