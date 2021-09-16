@@ -111,7 +111,7 @@ db.getUsers()
 > Gerenciar Usuários
 
 ```shell
-db.createUser({user: "thais", pwd: "123", roles: [{role:"readWrite", db:"riotalks"}]})
+db.createUser({user: "riotalks", pwd: "riotalks", roles: [{role:"readWrite", db:"riotalks"}]})
 { ok: 1 }
 ```
 
@@ -175,6 +175,10 @@ db.createUser({user: "thais", pwd: "123", roles: [{role:"readWrite", db:"riotalk
 > Atualizar usuario
 
 ```shell
+
+db.createUser({user: "josesd", pwd: "1234", roles: [{role:"readWrite", db:"riotalks"}]})
+
+
 db.createUser({user: "user1", pwd: "user1", roles: [{role:"readWrite", db:"riotalks"}]})
 db.auth("user1", "user1")
 db.createUser({user: "user2", pwd: "user2", roles: [{role:"readWrite", db:"riotalks"}]})
@@ -195,7 +199,7 @@ db.auth("josesd", "142022")
 ```
 
 ```shell
-db.auth("josesd", "142021")
+db.auth("jose", "00000")
 MongoServerError: Authentication failed.
 ```
 
@@ -208,7 +212,7 @@ db.getUsers()
 {
   users: [
     {
-      _id: 'test.josesd',
+      _id: 'test.jose',
       userId: UUID("a330867c-1987-4fc4-9495-c811cc962399"),
       user: 'josesd',
       db: 'test',
@@ -233,9 +237,9 @@ db.dropUser("ze")
 
 ```java
 Query query = new Query();
-query.addCriteria(Criteria.where("idUrl").is("iHA5GROvEF1Xe7BkPp7dY"));
+query.addCriteria(Criteria.where("id").is("iHA5GROvEF1Xe7BkPp7dY"));
 
 Update update = new Update();
-update.set("fullUrlAddress", "http://www.google.com");
-this.mongoTemplate.updateFirst(query, update, ShortenedUrl.class);
+update.set("nome", "Carlos");
+this.mongoTemplate.updateFirst(query, update, User.class);
 ````
